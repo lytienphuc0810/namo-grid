@@ -31,10 +31,10 @@
         searchables: [],
         staticSearchField: undefined,
         columns: undefined,
-        gridId: "#neo-grid",
+        gridId: "#grid",
         gridBodyId: "tbody",
-        headerId: "#neo-grid-header",
-        footerId: "#neo-grid-footer",
+        headerId: "#grid-header",
+        footerId: "#grid-footer",
         afterBodyRendered: function($body) {
             // body...
         },
