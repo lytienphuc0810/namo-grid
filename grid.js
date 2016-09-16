@@ -32,7 +32,7 @@
         staticSearchField: undefined,
         columns: undefined,
         gridId: "#grid",
-        gridBodyId: "tbody",
+        gridBodyId: "#grid-body",
         headerId: "#grid-header",
         footerId: "#grid-footer",
         afterBodyRendered: function($body) {
