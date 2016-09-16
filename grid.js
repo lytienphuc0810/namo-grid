@@ -80,10 +80,13 @@
         $header: undefined,
         $footer: undefined,
         option: undefined,
+        isNotEmpty: function(str) {
+            return str != undefined && str != "";
+        },
         render: function() {
             var controller = this;
             controller.checkOptions();
-            if (neoStoryBox.isNotEmpty(controller.options.headerId)) {
+            if (controller.isNotEmpty(controller.options.headerId)) {
                 controller.renderHeader();
             }
             return controller.refreshGrid();
@@ -152,7 +155,7 @@
             return controller.renderBody(state).then(function() {
                 options.afterBodyRendered();
 
-                if (neoStoryBox.isNotEmpty(controller.options.footerId)) {
+                if (controller.isNotEmpty(controller.options.footerId)) {
                     controller.renderFooter();
                     controller.initFooterEvent();
                 }
@@ -204,7 +207,7 @@
 
             _.each(options.columns, function(column) {
                 if (column.formatter !== undefined) {
-                    if (neoStoryBox.isNotEmpty(options.itemTemplate)) {
+                    if (controller.isNotEmpty(options.itemTemplate)) {
                         var rawCell = Mustache.render(options.itemTemplate, {
                             classes: column.classes
                         });
