@@ -2,11 +2,11 @@
     var searchOptionTemplate = '<option value="{{value}}">{{text}}</option>';
     var footerTemplate = '';
     footerTemplate += '<ul>';
-    footerTemplate += '<li><a class="firstPage ir" href="#" data-page="first" title="첫 페이지로 이동">&laquo;</a></li>';
-    footerTemplate += '<li><a class="previousPage ir" href="#" data-page="previous" title="앞 페이지로 이동">&lt;</a></li>';
-    footerTemplate += '{{#pages}}<li><a class="{{#isOn}}on{{/isOn}}" href="#" data-page="{{pageNo}}" title="{{pageNo}}페이지로 이동">{{pageNo}}</a></li>{{/pages}}';
-    footerTemplate += '<li><a class="nextPage ir" href="#" data-page="next" title="뒷 페이지로 이동">&gt;</a></li>';
-    footerTemplate += '<li><a class="lastPage ir" href="#" data-page="last" title="끝 페이지로 이동">&raquo;</a></li>';
+    footerTemplate += '<li><a class="firstPage" href="#" data-page="first" title="">&laquo;</a></li>';
+    footerTemplate += '<li><a class="previousPage" href="#" data-page="previous" title="">&lt;</a></li>';
+    footerTemplate += '{{#pages}}<li><a class="{{#isOn}}on{{/isOn}}" href="#" data-page="{{pageNo}}" title="">{{pageNo}}</a></li>{{/pages}}';
+    footerTemplate += '<li><a class="nextPage" href="#" data-page="next" title="">&gt;</a></li>';
+    footerTemplate += '<li><a class="lastPage" href="#" data-page="last" title="">&raquo;</a></li>';
     footerTemplate += '</ul>';
     var rowTemplate = "<tr data-rowno={{rowno}}></tr>";
     var itemTemplate = '<td class="{{classes}}">{{value}}</td>';
