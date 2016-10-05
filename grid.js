@@ -26,10 +26,7 @@
         },
         rowTemplate: rowTemplate,
         itemTemplate: itemTemplate,
-        searchOptionTemplate: searchOptionTemplate,
         footerTemplate: footerTemplate,
-        searchables: [],
-        staticSearchField: undefined,
         columns: undefined,
         gridId: "#grid",
         gridBodyId: "#grid-body",
@@ -65,7 +62,6 @@
         // for faster template processing
         Mustache.parse(this.options.rowTemplate);
         Mustache.parse(this.options.itemTemplate);
-        Mustache.parse(this.options.searchOptionTemplate);
         Mustache.parse(this.options.footerTemplate);
 
         var options = this.options;
@@ -105,18 +101,6 @@
         renderHeader: function() {
             var controller = this;
             var options = this.options
-            var searchables = this.options.searchables;
-
-            if (!options.staticSearchField) {
-                var searchOptions = [];
-                _.each(searchables, function(searchable, index) {
-                    searchOptions.push(Mustache.render(options.searchOptionTemplate, {
-                        text: searchable.name,
-                        value: searchable.id
-                    }));
-                })
-                controller.$header.find('select').append(searchOptions);
-            }
 
             controller.initHeaderEvent();
             if (options.afterHeaderRendered !== undefined && _.isFunction(options.afterHeaderRendered)) {
@@ -134,21 +118,7 @@
                 $select.val('');
             }
         },
-        initHeaderEvent: function() {
-            var controller = this;
-            var $select = controller.$header.find('select');
-            var $input = controller.$header.find('input');
-
-            controller.$header.find('form').submit(function(event) {
-                controller.refreshGrid({
-                    searchField: !controller.options.staticSearchField ? $select.val() : controller.options.staticSearchField,
-                    searchText: $input.val(),
-                    pageNumber: 1
-                });
-                controller.$grid.trigger("neogrid.search");
-                event.preventDefault();
-            })
-        },
+        initHeaderEvent: function() {},
         refreshGrid: function(state) {
             var controller = this;
             var options = controller.options;
