@@ -28,8 +28,7 @@
         itemTemplate: itemTemplate,
         footerTemplate: footerTemplate,
         columns: undefined,
-        gridId: ".grid",
-        gridBodyId: ".grid-body",
+        bodyId: ".grid-body",
         headerId: ".grid-header",
         footerId: ".grid-footer",
         afterBodyRendered: function($body) {
@@ -55,7 +54,7 @@
         });
 
         this.$container = $element;
-        this.$grid = this.$container.find(this.options.gridId);
+        this.$gridBody = this.$container.find(options.bodyId);
         this.$header = this.$container.find(this.options.headerId);
         this.$footer = this.$container.find(this.options.footerId);
 
@@ -158,11 +157,11 @@
             var options = controller.options;
             var state = options.state;
             state.total = data.total;
-            var $gridBody = controller.$grid.find(options.gridBodyId).empty();
             controller.pageItemCount = data.rows.length;
 
+            controller.$gridBody.empty();
             _.each(data.rows, function(row, index) {
-                $gridBody.append(controller.renderItem(row, index, data.rows));
+                controller.$gridBody.append(controller.renderItem(row, index, data.rows));
             });
         },
         renderItem: function(row, index, rows) {
