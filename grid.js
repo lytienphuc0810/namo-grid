@@ -54,7 +54,7 @@
         });
 
         this.$container = $element;
-        this.$gridBody = this.$container.find(options.bodyId);
+        this.$gridBody = this.$container.find(this.options.bodyId);
         this.$header = this.$container.find(this.options.headerId);
         this.$footer = this.$container.find(this.options.footerId);
 
