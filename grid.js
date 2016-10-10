@@ -28,10 +28,10 @@
         itemTemplate: itemTemplate,
         footerTemplate: footerTemplate,
         columns: undefined,
-        gridId: "#grid",
-        gridBodyId: "#grid-body",
-        headerId: "#grid-header",
-        footerId: "#grid-footer",
+        gridId: ".grid",
+        gridBodyId: ".grid-body",
+        headerId: ".grid-header",
+        footerId: ".grid-footer",
         afterBodyRendered: function($body) {
             // body...
         },
